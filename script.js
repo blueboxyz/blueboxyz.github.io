@@ -60,7 +60,8 @@ async function validateKey(inputKey) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'apikey': SUPABASE_ANON_KEY
       },
       body: JSON.stringify({ key: keyHash })
     }
@@ -84,7 +85,6 @@ document.querySelector('.enter-btn').addEventListener('click', async () => {
     btn.textContent = 'Access granted';
     btn.style.color = '#6b5a3e';
     btn.style.borderColor = '#6b5a3e';
-    // Redirect to your dashboard after a short delay
     setTimeout(() => {
       window.location.href = 'dashboard.html';
     }, 1000);
