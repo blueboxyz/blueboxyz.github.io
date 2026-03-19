@@ -48,17 +48,26 @@ draw();
 
 // Key validation
 async function validateKey(inputKey) {
+  const bytes = new TextEncoder().encode(inputKey);
+  const hash = await crypto.subtle.digest("SHA-256", bytes);
+  const keyHash = Array.from(new Uint8Array(hash))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+
   const response = await fetch(
-    `${SUPABASE_URL}/rest/v1/keys?key=eq.${encodeURIComponent(inputKey)}&is_blacklisted=eq.false&select=id`,
+    'https://fjuvaaknonveyjcdmgfu.supabase.co/functions/v1/validate-key',
     {
+      method: 'POST',
       headers: {
-        'apikey': SUPABASE_ANON_KEY,
+        'Content-Type': 'application/json',
         'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
-      }
+      },
+      body: JSON.stringify({ key: keyHash })
     }
   );
+
   const data = await response.json();
-  return data.length > 0;
+  return data.ok === true;
 }
 
 document.querySelector('.enter-btn').addEventListener('click', async () => {
