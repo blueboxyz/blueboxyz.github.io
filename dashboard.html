@@ -7,92 +7,49 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;600&family=IM+Fell+English:ital@0;1&display=swap');
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; background: #000; overflow-x: hidden; }
+    html, body { height: 100%; background: #000; }
 
     .dashboard {
       min-height: 100vh;
       background: #000;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
       position: relative;
       overflow: hidden;
+      text-align: center;
     }
 
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 32px 60px;
+    .bg-vignette {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(40,28,12,0.35) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .content {
       position: relative;
-      z-index: 10;
-      border-bottom: 1px solid #1a1a1a;
-    }
-
-    .nav-brand {
-      font-family: 'Cinzel', serif;
-      font-size: 11px;
-      letter-spacing: 8px;
-      color: #3a2e1e;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 48px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: 'Cinzel', serif;
-      font-size: 10px;
-      letter-spacing: 5px;
-      color: #3a2e1e;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: color 0.4s;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: #6b5a3e;
-      transition: width 0.4s;
-    }
-
-    .nav-links a:hover { color: #c8b89a; }
-    .nav-links a:hover::after { width: 100%; }
-
-    .hero {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      padding: 0 60px;
-      position: relative;
-    }
-
-    .hero-content {
       z-index: 2;
-      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .hero-eyebrow {
+    .eyebrow {
       font-family: 'Cinzel', serif;
       font-size: 10px;
       letter-spacing: 8px;
       color: #3a2e1e;
       text-transform: uppercase;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
       gap: 16px;
     }
 
-    .hero-eyebrow::before {
+    .eyebrow::before, .eyebrow::after {
       content: '';
       width: 32px;
       height: 1px;
@@ -101,82 +58,91 @@
 
     .hero-name {
       font-family: 'Cinzel', serif;
-      font-size: 72px;
+      font-size: 80px;
       font-weight: 300;
       color: #c8b89a;
-      line-height: 1.1;
-      letter-spacing: 4px;
+      letter-spacing: 12px;
+      line-height: 1;
       margin-bottom: 16px;
     }
 
     .hero-title {
       font-family: 'IM Fell English', serif;
       font-style: italic;
-      font-size: 22px;
-      color: #4a3f2f;
-      margin-bottom: 8px;
+      font-size: 20px;
+      color: #6b5a3e;
+      margin-bottom: 6px;
     }
 
     .hero-exp {
       font-family: 'Cinzel', serif;
-      font-size: 10px;
-      letter-spacing: 5px;
+      font-size: 9px;
+      letter-spacing: 6px;
       color: #2a2218;
       text-transform: uppercase;
-      margin-bottom: 48px;
+      margin-bottom: 40px;
     }
 
     .divider {
-      width: 60px;
-      height: 1px;
-      background: #2a2218;
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, transparent, #3a2e1e, transparent);
       margin-bottom: 40px;
     }
 
     .hero-desc {
       font-family: 'IM Fell English', serif;
-      font-size: 17px;
+      font-size: 16px;
       color: #4a3f2f;
       line-height: 1.8;
       font-style: italic;
-      max-width: 460px;
+      max-width: 420px;
+      margin-bottom: 56px;
     }
 
-    .hero-deco {
-      position: absolute;
-      right: 60px;
-      top: 50%;
-      transform: translateY(-50%);
+    nav {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-      z-index: 2;
+      gap: 48px;
+      list-style: none;
     }
 
-    .deco-line {
-      width: 1px;
-      height: 120px;
-      background: linear-gradient(to bottom, transparent, #2a2218, transparent);
-    }
-
-    .deco-stat { text-align: center; }
-
-    .deco-stat-num {
+    nav a {
       font-family: 'Cinzel', serif;
-      font-size: 36px;
-      font-weight: 300;
-      color: #c8b89a;
-      letter-spacing: 2px;
+      font-size: 11px;
+      letter-spacing: 5px;
+      color: #6b5a3e;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.4s;
+      position: relative;
+      padding-bottom: 6px;
     }
 
-    .deco-stat-label {
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 1px;
+      background: #c8b89a;
+      transition: width 0.4s;
+    }
+
+    nav a:hover { color: #c8b89a; }
+    nav a:hover::after { width: 100%; }
+
+    .brand {
+      position: fixed;
+      bottom: 28px;
+      right: 48px;
       font-family: 'Cinzel', serif;
       font-size: 9px;
-      letter-spacing: 4px;
-      color: #2a2218;
+      letter-spacing: 6px;
+      color: #1e1a12;
       text-transform: uppercase;
-      margin-top: 4px;
+      z-index: 10;
     }
 
     #mist {
@@ -189,60 +155,39 @@
       z-index: 5;
     }
 
-    .bg-vignette {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(ellipse at 70% 50%, rgba(30,20,10,0.4) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 1;
-    }
-
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(16px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .hero-eyebrow { animation: fadeUp 1s ease both; animation-delay: 0.1s; }
-    .hero-name { animation: fadeUp 1s ease both; animation-delay: 0.25s; }
-    .hero-title { animation: fadeUp 1s ease both; animation-delay: 0.4s; }
-    .hero-exp { animation: fadeUp 1s ease both; animation-delay: 0.5s; }
-    .divider { animation: fadeUp 1s ease both; animation-delay: 0.6s; }
-    .hero-desc { animation: fadeUp 1s ease both; animation-delay: 0.7s; }
-    .hero-deco { animation: fadeUp 1s ease both; animation-delay: 0.9s; }
+    .eyebrow    { animation: fadeUp 1s ease both; animation-delay: 0.1s; opacity: 0; }
+    .hero-name  { animation: fadeUp 1s ease both; animation-delay: 0.25s; opacity: 0; }
+    .hero-title { animation: fadeUp 1s ease both; animation-delay: 0.4s; opacity: 0; }
+    .hero-exp   { animation: fadeUp 1s ease both; animation-delay: 0.5s; opacity: 0; }
+    .divider    { animation: fadeUp 1s ease both; animation-delay: 0.6s; opacity: 0; }
+    .hero-desc  { animation: fadeUp 1s ease both; animation-delay: 0.7s; opacity: 0; }
+    nav         { animation: fadeUp 1s ease both; animation-delay: 0.9s; opacity: 0; }
   </style>
 </head>
 <body>
   <div class="dashboard">
     <div class="bg-vignette"></div>
 
-    <nav>
-      <div class="nav-brand">Bluebo</div>
-      <ul class="nav-links">
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-
-    <div class="hero">
-      <div class="hero-content">
-        <div class="hero-eyebrow">Welcome back</div>
-        <div class="hero-name">Bluebo</div>
-        <div class="hero-title">Roblox Developer</div>
-        <div class="hero-exp">5+ Years of Experience</div>
-        <div class="divider"></div>
-        <div class="hero-desc">"Crafting worlds, systems, and tools within the realm of Roblox — built with precision, delivered with purpose."</div>
-      </div>
-
-      <div class="hero-deco">
-        <div class="deco-line"></div>
-        <div class="deco-stat">
-          <div class="deco-stat-num">5+</div>
-          <div class="deco-stat-label">Years</div>
-        </div>
-        <div class="deco-line"></div>
-      </div>
+    <div class="content">
+      <div class="eyebrow">Welcome</div>
+      <div class="hero-name">Bluebo</div>
+      <div class="hero-title">Roblox Developer</div>
+      <div class="hero-exp">5+ Years of Experience</div>
+      <div class="divider"></div>
+      <div class="hero-desc">"Crafting worlds, systems, and tools within the realm of Roblox — built with precision, delivered with purpose."</div>
+      <nav>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
+
+    <div class="brand">Bluebo</div>
   </div>
 
   <canvas id="mist"></canvas>
