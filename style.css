@@ -1,1 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bluebo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=IM+Fell+English:ital@0;1&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; }
+    .page {
+      min-height: 100vh;
+      background: #000;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+    }
+    .knight-side {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .knight-side img {
+      height: 100vh;
+      object-fit: contain;
+      filter: brightness(0.75) contrast(1.05) sepia(0.2);
+      mask-image: linear-gradient(to top, rgba(0,0,0,1) 60%, transparent 100%),
+                  linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 40%);
+      -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 60%, transparent 100%),
+                          linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 40%);
+      mask-composite: intersect;
+      -webkit-mask-composite: source-in;
+    }
+    .right-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 70px 60px 30px;
+      position: relative;
+      z-index: 2;
+    }
+    .quote {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 26px;
+      color: #c8b89a;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+    .quote-attr {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 5px;
+      color: #4a3f2f;
+      margin-bottom: 64px;
+      text-transform: uppercase;
+    }
+    .divider { width: 48px; height: 1px; background: #2a2218; margin-bottom: 36px; }
+    .key-label {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 6px;
+      color: #4a3f2f;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .key-input {
+      width: 100%;
+      max-width: 380px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #2a2218;
+      color: #c8b89a;
+      font-family: 'IM Fell English', serif;
+      font-size: 22px;
+      letter-spacing: 8px;
+      padding: 12px 0;
+      outline: none;
+      transition: border-color 0.4s;
+    }
+    .key-input::placeholder { color: #2a2218; }
+    .key-input:focus { border-bottom-color: #6b5a3e; }
+    .enter-btn {
+      margin-top: 36px;
+      background: transparent;
+      border: 1px solid #2a2218;
+      color: #4a3f2f;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      cursor: pointer;
+      transition: all 0.4s;
+      max-width: 380px;
+      width: 100%;
+    }
+    .enter-btn:hover { border-color: #6b5a3e; color: #c8b89a; background: rgba(100,80,40,0.07); }
+    .brand {
+      position: fixed;
+      bottom: 32px;
+      right: 70px;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 8px;
+      color: #1e1a12;
+      text-transform: uppercase;
+      z-index: 20;
+    }
+    #mist {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 15;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="knight-side">
+      <img src="https://files.catbox.moe/f04xa8.png" alt="Knight" />
+    </div>
+    <div class="right-side">
+      <div class="quote">"Thou shalt not pass these gates without thy key. Speak it now, or be swallowed by the eternal dark."</div>
+      <div class="quote-attr">— The Gatekeeper</div>
+      <div class="divider"></div>
+      <div class="key-label">Thy Key</div>
+      <input class="key-input" type="password" placeholder="· · · · · · · · · ·" />
+      <button class="enter-btn">Present thy key</button>
+    </div>
+  </div>
 
+  <canvas id="mist"></canvas>
+  <div class="brand">Bluebo</div>
+
+  <script>
+    const canvas = document.getElementById('mist');
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const particles = [];
+    const count = 90;
+
+    function spawnParticle() {
+      return {
+        x: Math.random() * window.innerWidth,
+        y: window.innerHeight - 20 - Math.random() * 120,
+        r: 80 + Math.random() * 140,
+        alpha: 0.015 + Math.random() * 0.04,
+        speed: 0.08 + Math.random() * 0.2,
+        drift: (Math.random() - 0.5) * 0.15
+      };
+    }
+
+    for (let i = 0; i < count; i++) particles.push(spawnParticle());
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (const p of particles) {
+        const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+        grad.addColorStop(0, `rgba(210,200,180,${p.alpha})`);
+        grad.addColorStop(0.5, `rgba(180,170,150,${p.alpha * 0.4})`);
+        grad.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = grad;
+        ctx.fill();
+
+        p.x += p.speed + p.drift;
+
+        if (p.x - p.r > canvas.width) {
+          p.x = -p.r;
+          p.y = window.innerHeight - 20 - Math.random() * 120;
+        }
+      }
+
+      // Fade out everything above the bottom 25% of screen
+      const fade = ctx.createLinearGradient(0, canvas.height * 0.6, 0, canvas.height);
+      fade.addColorStop(0, 'rgba(0,0,0,1)');
+      fade.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = fade;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+</body>
+</html>
