@@ -48,12 +48,6 @@ draw();
 
 // Key validation
 async function validateKey(inputKey) {
-  const bytes = new TextEncoder().encode(inputKey);
-  const hash = await crypto.subtle.digest("SHA-256", bytes);
-  const keyHash = Array.from(new Uint8Array(hash))
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
-
   const response = await fetch(
     'https://fjuvaaknonveyjcdmgfu.supabase.co/functions/v1/clever-api',
     {
@@ -63,9 +57,12 @@ async function validateKey(inputKey) {
         'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
         'apikey': SUPABASE_ANON_KEY
       },
-      body: JSON.stringify({ key: keyHash })
+      body: JSON.stringify({ key: inputKey })
     }
   );
+  const data = await response.json();
+  return data.ok === true;
+}
 
   const data = await response.json();
   return data.ok === true;
