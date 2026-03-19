@@ -55,7 +55,7 @@ async function validateKey(inputKey) {
     .join("");
 
   const response = await fetch(
-    'https://fjuvaaknonveyjcdmgfu.supabase.co/functions/v1/validate-key',
+    'https://fjuvaaknonveyjcdmgfu.supabase.co/functions/v1/clever-api',
     {
       method: 'POST',
       headers: {
