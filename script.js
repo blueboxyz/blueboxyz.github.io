@@ -1,7 +1,6 @@
 const SUPABASE_URL = 'https://fjuvaaknonveyjcdmgfu.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZqdXZhYWtub252ZXlqY2RtZ2Z1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM5Mzc3ODIsImV4cCI6MjA4OTUxMzc4Mn0.2Ed8FvYhe8tVJzeOq9u0GGBOIpj53Wn01WQmtzLzisw';
 
-// Mist setup
 const canvas = document.getElementById('mist');
 const ctx = canvas.getContext('2d');
 
@@ -13,7 +12,6 @@ resize();
 window.addEventListener('resize', resize);
 
 const particles = [];
-
 for (let i = 0; i < 200; i++) {
   particles.push({
     x: Math.random() * window.innerWidth,
@@ -46,7 +44,6 @@ function draw() {
 }
 draw();
 
-// Key validation
 async function validateKey(inputKey) {
   const response = await fetch(
     'https://fjuvaaknonveyjcdmgfu.supabase.co/functions/v1/clever-api',
@@ -60,10 +57,6 @@ async function validateKey(inputKey) {
       body: JSON.stringify({ key: inputKey })
     }
   );
-  const data = await response.json();
-  return data.ok === true;
-}
-
   const data = await response.json();
   return data.ok === true;
 }
