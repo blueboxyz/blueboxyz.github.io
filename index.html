@@ -35,13 +35,13 @@
       -webkit-mask-composite: source-in;
     }
     canvas#mist {
-      position: absolute;
+      position: fixed;
       bottom: 0;
       left: 0;
-      width: 200%;
-      height: 180px;
+      width: 100vw;
+      height: 220px;
       pointer-events: none;
-      z-index: 3;
+      z-index: 10;
     }
     .right-side {
       display: flex;
@@ -124,7 +124,6 @@
   <div class="page">
     <div class="knight-side">
       <img src="https://files.catbox.moe/f04xa8.png" alt="Knight" />
-      <canvas id="mist"></canvas>
     </div>
     <div class="right-side">
       <div class="quote">"Thou shalt not pass these gates without thy key. Speak it now, or be swallowed by the eternal dark."</div>
@@ -137,24 +136,27 @@
     <div class="brand">Bluebo</div>
   </div>
 
+  <canvas id="mist"></canvas>
+
   <script>
     const canvas = document.getElementById('mist');
     const ctx = canvas.getContext('2d');
 
     function resize() {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
+      canvas.width = window.innerWidth;
+      canvas.height = 220;
     }
     resize();
+    window.addEventListener('resize', resize);
 
     const particles = [];
-    const count = 40;
+    const count = 80;
 
     for (let i = 0; i < count; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: canvas.height - Math.random() * canvas.height * 0.8,
-        r: 40 + Math.random() * 80,
+        r: 60 + Math.random() * 120,
         alpha: 0.02 + Math.random() * 0.06,
         speed: 0.1 + Math.random() * 0.3,
         drift: (Math.random() - 0.5) * 0.2
