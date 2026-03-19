@@ -10,7 +10,7 @@ window.addEventListener('resize', resize);
 
 const particles = [];
 
-for (let i = 0; i < 90; i++) {
+for (let i = 0; i < 200; i++) {
   particles.push({
     x: Math.random() * window.innerWidth,
     y: 280 + Math.random() * 20,
