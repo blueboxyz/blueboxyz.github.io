@@ -3,7 +3,7 @@ body {
   min-height: 100vh;
   margin: 0;
   background-image:
-    linear-gradient(rgba(79, 143, 255, 0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(79, 143, 255, 0.15) 1px, transparent 1px);
+    linear-gradient(rgba(79, 143, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 143, 255, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
 }
