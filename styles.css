@@ -367,14 +367,33 @@ section { position: relative; z-index: 1; }
 }
 .services__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
+  align-items: start;
+}
+.service-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.service-card__popular-label {
+  display: inline-flex;
+  align-self: flex-start;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--bg);
+  background: var(--blue);
+  padding: 4px 12px;
+  border-radius: 6px 6px 0 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-left: 20px;
 }
 .service-card {
   background: var(--bg2);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 32px;
+  padding: 24px;
   position: relative;
   overflow: hidden;
   transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
@@ -386,6 +405,7 @@ section { position: relative; z-index: 1; }
 }
 .service-card--popular {
   border-color: var(--blue-dim);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) var(--radius-lg);
   background: linear-gradient(160deg, #131a2e 0%, var(--bg2) 60%);
 }
 .service-card--popular::before {
@@ -395,52 +415,40 @@ section { position: relative; z-index: 1; }
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--blue), transparent);
 }
-.service-card__badge {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--bg);
-  background: var(--blue);
-  padding: 3px 10px;
-  border-radius: 999px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 20px;
-}
 .service-card__icon {
-  font-size: 28px;
-  margin-bottom: 18px;
+  font-size: 24px;
+  margin-bottom: 14px;
 }
 .service-card__title {
   font-family: var(--font-display);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 .service-card__price {
   font-family: var(--font-display);
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 800;
   color: var(--blue);
-  margin-bottom: 4px;
+  margin-bottom: 3px;
   line-height: 1;
 }
 .service-card__price-note {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--grey2);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 .service-card__desc {
   font-size: 13px;
   color: var(--grey);
-  line-height: 1.8;
-  margin-bottom: 24px;
+  line-height: 1.7;
+  margin-bottom: 18px;
 }
 .service-card__features {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-bottom: 28px;
+  gap: 7px;
+  margin-bottom: 22px;
 }
 .service-card__feature {
   font-size: 13px;
