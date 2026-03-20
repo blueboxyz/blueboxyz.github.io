@@ -1,14 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bluebo</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bluebo — Roblox Scripting Services</title>
+  <meta name="description" content="Professional Roblox scripting services. Modular systems, AI logic, combat systems and more. 5+ years of experience." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <nav>
-    <a href="#">blue<span>bo</span></a>
+
+  <!-- ═══════════════════════════════════════
+       NAV
+  ══════════════════════════════════════════ -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="#hero" class="nav__logo">
+          <span class="blue">blue</span><span class="white">bo</span>
+        </a>
+
+        <!-- Desktop links -->
+        <ul class="nav__links">
+          <li><a href="#services">Pricing &amp; Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#hire" class="nav__cta">Hire Me</a></li>
+        </ul>
+
+        <!-- Mobile hamburger -->
+        <button class="nav__hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div class="nav__mobile">
+        <a href="#services">Pricing &amp; Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#hire" class="nav__cta">Hire Me</a>
+      </div>
+    </div>
   </nav>
+
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section id="hero" class="hero">
+    <div class="hero__glow"></div>
+    <div class="container">
+
+      <div class="hero__tag">Available for projects</div>
+
+      <h1 class="hero__title fade-up">
+        Roblox scripting<br />
+        done <span class="blue">right.</span><br />
+        <span class="dim">No shortcuts.</span>
+      </h1>
+
+      <p class="hero__sub fade-up" data-delay="100">
+        I build clean, modular Lua systems for Roblox — from AI logic and combat to full game frameworks.
+        5+ years in Roblox Studio, built to spec, revisions included.
+      </p>
+
+      <div class="hero__badges fade-up" data-delay="160">
+        <span class="hero__badge"><span class="dot">▸</span>Modular Systems</span>
+        <span class="hero__badge"><span class="dot">▸</span>AI &amp; NPC Logic</span>
+        <span class="hero__badge"><span class="dot">▸</span>Combat Systems</span>
+        <span class="hero__badge"><span class="dot">▸</span>OOP Architecture</span>
+        <span class="hero__badge"><span class="dot">▸</span>LUAU / Roblox Studio</span>
+      </div>
+
+      <div class="hero__btns fade-up" data-delay="220">
+        <a href="#hire" class="btn btn--primary">Hire Me</a>
+        <a href="#portfolio" class="btn btn--outline">View Portfolio</a>
+      </div>
+
+      <div class="hero__stats fade-up" data-delay="300">
+        <div>
+          <div class="hero__stat-num">5+</div>
+          <div class="hero__stat-label">Years in Roblox Studio</div>
+        </div>
+        <div>
+          <div class="hero__stat-num">3</div>
+          <div class="hero__stat-label">Service tiers</div>
+        </div>
+        <div>
+          <div class="hero__stat-num">100%</div>
+          <div class="hero__stat-label">Built from scratch</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       SERVICES / PRICING
+  ══════════════════════════════════════════ -->
+  <section id="services" class="services">
+    <div class="container">
+
+      <div class="section-header fade-up">
+        <div class="section-tag">// Pricing &amp; Services</div>
+        <h2 class="section-title">Pick what you need,<br /><span class="blue">pay for what you get.</span></h2>
+        <p class="section-desc">Straightforward pricing. No hidden fees, no vague estimates. Every package comes with direct Discord support.</p>
+      </div>
+
+      <div class="services__grid">
+
+        <!-- Portfolio Package -->
+        <div class="service-card fade-up" data-delay="0">
+          <div class="service-card__icon">📁</div>
+          <div class="service-card__title">Portfolio Package</div>
+          <div class="service-card__price">$5</div>
+          <div class="service-card__price-note">flat rate per system</div>
+          <div class="service-card__desc">
+            Anything you see on my portfolio or YouTube channel is available for purchase. You get the full, clean source — ready to drop into your project.
+          </div>
+          <ul class="service-card__features">
+            <li class="service-card__feature">Any portfolio or YouTube system</li>
+            <li class="service-card__feature">Full source code included</li>
+            <li class="service-card__feature">Quick turnaround</li>
+          </ul>
+          <a href="#hire" class="btn btn--outline">Get a System</a>
+        </div>
+
+        <!-- Custom Project — Most Popular -->
+        <div class="service-card service-card--popular fade-up" data-delay="80">
+          <div class="service-card__badge">Most Popular</div>
+          <div class="service-card__icon">⚙️</div>
+          <div class="service-card__title">Custom Project</div>
+          <div class="service-card__price">$5–$30</div>
+          <div class="service-card__price-note">price based on scope — most land on the lower end</div>
+          <div class="service-card__desc">
+            You bring the idea, I build it from scratch to your exact specs. Whether it's a full AI system, a combat framework, or something in between, this is the pick for anything custom.
+          </div>
+          <ul class="service-card__features">
+            <li class="service-card__feature">Built to your specifications from scratch</li>
+            <li class="service-card__feature">Revisions included</li>
+            <li class="service-card__feature">Setup help &amp; bug fixing included</li>
+            <li class="service-card__feature">Contact for an exact price</li>
+          </ul>
+          <a href="#hire" class="btn btn--primary">Get a Quote</a>
+        </div>
+
+        <!-- 1-on-1 Lessons -->
+        <div class="service-card fade-up" data-delay="160">
+          <div class="service-card__icon">🎓</div>
+          <div class="service-card__title">1-on-1 Lessons</div>
+          <div class="service-card__price">$5</div>
+          <div class="service-card__price-note">per lesson</div>
+          <div class="service-card__desc">
+            Want to actually understand what you're building? I'll work through it with you at your own pace — beginner or intermediate, no judgment.
+          </div>
+          <ul class="service-card__features">
+            <li class="service-card__feature">Code review &amp; feedback</li>
+            <li class="service-card__feature">OOP fundamentals</li>
+            <li class="service-card__feature">LUAU &amp; Roblox scripting</li>
+            <li class="service-card__feature">Adapts to your skill level</li>
+            <li class="service-card__feature">Flexible scheduling</li>
+          </ul>
+          <a href="#hire" class="btn btn--outline">Book a Lesson</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       PORTFOLIO
+  ══════════════════════════════════════════ -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+
+      <div class="section-header fade-up">
+        <div class="section-tag">// Portfolio</div>
+        <h2 class="section-title">Things I've <span class="blue">built.</span></h2>
+        <p class="section-desc">A selection of systems from my YouTube and past projects. Any of these are available as a Portfolio Package.</p>
+      </div>
+
+      <!-- Cards are injected here by main.js using portfolio-data.js -->
+      <div class="portfolio__grid" id="portfolio-grid"></div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════════ -->
+  <section id="about" class="about">
+    <div class="container">
+
+      <div class="section-header fade-up">
+        <div class="section-tag">// About</div>
+        <h2 class="section-title">Who's <span class="blue">bluebo?</span></h2>
+      </div>
+
+      <div class="about__grid">
+
+        <div class="about__bio fade-up">
+          <p>
+            I've been scripting in Roblox Studio for <strong>over 5 years</strong>. Started the same way most people do — copy-pasting tutorials and wondering why nothing worked. Eventually figured out how to actually write clean, structured code and never looked back.
+          </p>
+          <p>
+            These days I specialize in <strong>modular systems</strong> — the kind of code that's easy to extend, easy to debug, and doesn't fall apart when a project grows. AI logic and combat are where I spend most of my time, but I'm comfortable taking on pretty much anything.
+          </p>
+          <p>
+            I keep projects small enough that I can stay hands-on. That means you're talking directly to the person writing your code, not some middleman. If something isn't right, we fix it.
+          </p>
+          <p>
+            I also run a <strong>YouTube channel</strong> where I post breakdowns of the systems I build — so if you want to see how I think about architecture before hiring me, that's a good place to start.
+          </p>
+        </div>
+
+        <div class="about__skills fade-up" data-delay="100">
+
+          <div class="skill-row">
+            <div class="skill-row__header"><span>LUAU / Roblox Scripting</span><span>Expert</span></div>
+            <div class="skill-bar"><div class="skill-bar__fill" data-width="95%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-row__header"><span>OOP &amp; Modular Architecture</span><span>Expert</span></div>
+            <div class="skill-bar"><div class="skill-bar__fill" data-width="92%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-row__header"><span>AI &amp; NPC Systems</span><span>Advanced</span></div>
+            <div class="skill-bar"><div class="skill-bar__fill" data-width="88%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-row__header"><span>Combat &amp; Hitbox Systems</span><span>Advanced</span></div>
+            <div class="skill-bar"><div class="skill-bar__fill" data-width="90%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-row__header"><span>UI / Front-End (Roblox)</span><span>Proficient</span></div>
+            <div class="skill-bar"><div class="skill-bar__fill" data-width="75%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-row__header"><span>DataStore &amp; Persistence</span><span>Proficient</span></div>
+            <div class="skill-bar"><div class="skill-bar__fill" data-width="78%"></div></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       HIRE ME / CONTACT
+  ══════════════════════════════════════════ -->
+  <section id="hire" class="hire">
+    <div class="container">
+      <div class="hire__inner">
+
+        <div class="section-tag fade-up">// Hire Me</div>
+        <h2 class="section-title fade-up" data-delay="60">
+          Let's work <span class="blue">together.</span>
+        </h2>
+
+        <p class="section-desc fade-up" data-delay="120">
+          Got a project in mind, want to buy a system, or book a lesson? Hit me up on Discord — it's the fastest way to reach me. Describe what you need and I'll come back with a quote or an answer.
+        </p>
+
+        <div class="discord-card fade-up" data-delay="200">
+          <div class="discord-card__icon">
+            <!-- Discord logo SVG -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+            </svg>
+          </div>
+
+          <div class="discord-card__label">Find me on Discord</div>
+
+          <div class="discord-card__username">
+            <span class="blue">blue</span><span class="white">bo</span>
+          </div>
+
+          <button class="discord-card__copy">Copy Username</button>
+
+          <div class="discord-card__status">
+            <span class="status-dot"></span>
+            Usually replies within a few hours
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__logo">
+          <span class="blue">blue</span><span>bo</span>
+        </div>
+        <div class="footer__copy">Roblox scripting services &mdash; Discord: bluebo</div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts: data first, then main logic -->
+  <script src="portfolio-data.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
