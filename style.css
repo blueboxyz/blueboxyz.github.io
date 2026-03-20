@@ -7,3 +7,20 @@ body {
     linear-gradient(90deg, rgba(79, 143, 255, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
 }
+nav {
+  padding: 1.2rem 4rem;
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #4f8fff;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+
+nav a span {
+  color: #e8e8f0;
+}
