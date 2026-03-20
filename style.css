@@ -21,8 +21,6 @@ body {
   font-family: 'Syne', sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
-  max-width: 1400px;
-  margin: 0 auto;
 }
 
 body::before {
@@ -37,12 +35,11 @@ body::before {
   z-index: 0;
 }
 
-/* ─── NAV ─────────────────────────────── */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 1.2rem 2rem;
+  padding: 1.2rem 4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -66,7 +63,6 @@ nav ul {
   list-style: none;
   display: flex;
   gap: 2.5rem;
-  align-items: center;
 }
 
 nav ul a {
@@ -82,42 +78,26 @@ nav ul a {
 nav ul a:hover { color: var(--text); }
 
 .nav-cta {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
   color: var(--accent) !important;
   border: 1px solid var(--border2);
   padding: 0.5rem 1.2rem;
   border-radius: 4px;
-  transition: background 0.2s !important;
+  transition: background 0.2s, color 0.2s !important;
 }
 
-.nav-cta:hover { background: var(--glow); }
-
-/* Hamburger */
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
+.nav-cta:hover {
+  background: var(--glow);
+  color: var(--accent) !important;
 }
 
-.nav-toggle span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--muted);
-  border-radius: 2px;
-  transition: transform 0.2s, opacity 0.2s;
-}
-
-/* ─── HERO ─────────────────────────────── */
 .hero {
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 8rem 2rem 4rem;
+  padding: 8rem 4rem 4rem;
   z-index: 1;
 }
 
@@ -169,7 +149,6 @@ h1 .blue { color: var(--accent); }
   flex-wrap: wrap;
 }
 
-/* ─── BUTTONS ─────────────────────────── */
 .btn-primary {
   font-family: 'Space Mono', monospace;
   font-size: 0.82rem;
@@ -205,10 +184,9 @@ h1 .blue { color: var(--accent); }
 
 .btn-ghost:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
 
-/* ─── CODE BLOCK (hero) ───────────────── */
 .hero-code {
   position: absolute;
-  right: 2rem;
+  right: 4rem;
   top: 50%;
   transform: translateY(-50%);
   width: 340px;
@@ -229,9 +207,9 @@ h1 .blue { color: var(--accent); }
 }
 
 .dot { width: 10px; height: 10px; border-radius: 50%; }
-.d-red    { background: #ff5f56; }
+.d-red { background: #ff5f56; }
 .d-yellow { background: #ffbd2e; }
-.d-green  { background: #27c93f; }
+.d-green { background: #27c93f; }
 
 .code-filename {
   font-family: 'Space Mono', monospace;
@@ -250,18 +228,17 @@ pre {
   overflow: hidden;
 }
 
-.kw  { color: #7c5cfc; }
-.fn  { color: #4f8fff; }
+.kw { color: #7c5cfc; }
+.fn { color: #4f8fff; }
 .str { color: #5ccfb0; }
-.cm  { color: #444460; }
+.cm { color: #444460; }
 .num { color: #f0a060; }
 
-/* ─── SECTIONS ────────────────────────── */
 section {
   position: relative;
   z-index: 1;
-  padding: 6rem 2rem;
-  max-width: 900px;
+  padding: 6rem 4rem;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -301,7 +278,6 @@ h2 {
   font-weight: 400;
 }
 
-/* ─── SERVICES ────────────────────────── */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -343,7 +319,6 @@ h2 {
   font-weight: 400;
 }
 
-/* ─── PRICING ─────────────────────────── */
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -400,9 +375,9 @@ h2 {
 }
 
 .price-amount span {
-  font-size: 2.4rem;
-  color: var(--text);
-  font-weight: 800;
+  font-size: 1rem;
+  color: var(--muted);
+  font-weight: 400;
 }
 
 .price-note {
@@ -461,7 +436,6 @@ h2 {
 
 .quote-banner strong { color: var(--text); }
 
-/* ─── PORTFOLIO ───────────────────────── */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -481,7 +455,6 @@ h2 {
   transform: translateY(-2px);
 }
 
-/* YouTube embed wrapper — 16:9 */
 .yt-wrap {
   position: relative;
   width: 100%;
@@ -529,7 +502,6 @@ h2 {
   color: var(--accent);
 }
 
-/* ─── ABOUT ───────────────────────────── */
 .about-layout {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
@@ -582,13 +554,6 @@ h2 {
   font-weight: 400;
 }
 
-.about-text h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.8rem;
-  color: var(--text);
-}
-
 .about-text p {
   font-size: 0.95rem;
   color: var(--muted);
@@ -615,13 +580,14 @@ h2 {
   letter-spacing: 0.05em;
 }
 
-/* ─── CONTACT ─────────────────────────── */
 .contact-wrap {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 4rem;
   align-items: center;
 }
+
+.contact-text h2 { margin-bottom: 1rem; }
 
 .contact-text p {
   color: var(--muted);
@@ -705,15 +671,14 @@ h2 {
 
 @keyframes pulse {
   0%, 100% { opacity: 1; }
-  50%       { opacity: 0.4; }
+  50% { opacity: 0.4; }
 }
 
-/* ─── FOOTER ──────────────────────────── */
 footer {
   position: relative;
   z-index: 1;
   border-top: 1px solid var(--border);
-  padding: 2rem;
+  padding: 2rem 4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -735,50 +700,25 @@ footer p {
   margin: 0;
 }
 
-/* ─── ANIMATIONS ──────────────────────── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.hero-inner > * {
-  animation: fadeUp 0.7s ease both;
-}
-
+.hero-inner > * { animation: fadeUp 0.7s ease both; }
 .hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
 .hero-inner > *:nth-child(2) { animation-delay: 0.2s; }
 .hero-inner > *:nth-child(3) { animation-delay: 0.3s; }
 .hero-inner > *:nth-child(4) { animation-delay: 0.4s; }
 
-/* ─── RESPONSIVE ──────────────────────── */
 @media (max-width: 900px) {
   nav { padding: 1rem 1.5rem; }
-
-  nav ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0; right: 0;
-    flex-direction: column;
-    background: rgba(10,10,15,0.97);
-    border-bottom: 1px solid var(--border);
-    padding: 1.5rem;
-    gap: 1.2rem;
-  }
-
-  nav ul.open { display: flex; }
-
-  .nav-toggle { display: flex; }
-
+  nav ul { display: none; }
   .hero { padding: 7rem 1.5rem 4rem; }
   .hero-code { display: none; }
-
   section { padding: 4rem 1.5rem; }
-
   .about-layout { grid-template-columns: 1fr; }
   .about-card { position: static; }
-
   .contact-wrap { grid-template-columns: 1fr; }
-
   footer { padding: 1.5rem; flex-direction: column; align-items: flex-start; }
 }
