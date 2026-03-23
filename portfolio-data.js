@@ -53,7 +53,7 @@ const PORTFOLIO_ITEMS = [
     videoUrl: "https://www.youtube.com/watch?v=Kh_ZQvL0eF4",
     title: "Gun System",
     description:
-      "Gun system inspired by another roblox game called "Isle".",
+      "Gun system inspired by another roblox game called Isle.",
     tags: ["Guns", "OOP", "Combat"],
   },
 ];
