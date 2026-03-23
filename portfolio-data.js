@@ -49,4 +49,11 @@ const PORTFOLIO_ITEMS = [
       "AI boss fight with attack patterns and dashing mechanics.",
     tags: ["AI", "OOP", "Combat"],
   },
+  {
+    videoUrl: "https://www.youtube.com/watch?v=Kh_ZQvL0eF4",
+    title: "Gun System",
+    description:
+      "Gun system inspired by another roblox game called "Isle".",
+    tags: ["Guns", "OOP", "Combat"],
+  },
 ];
